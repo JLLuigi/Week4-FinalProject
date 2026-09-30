@@ -1,0 +1,105 @@
+/* Mobile-First Base Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #dedede;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+}
+
+p {
+    font-size: 18px;
+    text-align: center;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+/* One Column Mobile Grid */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+figure {
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+figcaption {
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+/* 1. Tablet View */
+@media screen and (min-width: 772px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    figure {
+        border-radius: 50%;
+    }
+
+    figure:last-child {
+        grid-column: span 2;
+    }
+}
+
+/* 2. Large Screen View */
+@media screen and (min-width: 992px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    figure {
+        border-radius: 0;
+    }
+
+    /* Reset last-child span from tablet query */
+    figure:last-child {
+        grid-column: span 1;
+    }
+
+    /* Every third figure spans both columns */
+    figure:nth-child(3n) {
+        grid-column: span 2;
+    }
+}
+
+/* 3. Prefers Reduced Motion Query */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* 4. Dark Color Scheme Query */
+@media (prefers-color-scheme: dark) {
+    figure {
+        background-color: #222222;
+        color: #fffdd0;
+        border-color: #000000;
+    }
+}
